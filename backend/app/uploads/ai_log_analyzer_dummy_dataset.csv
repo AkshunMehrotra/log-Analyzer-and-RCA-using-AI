@@ -1,0 +1,13 @@
+Call_ID,Agent_ID,Agent_Name,Date,Customer_ID,Call_Duration_Min,Wait_Time_Sec,Issue_Type,Call_Status,CSAT_Score
+1001,A101,Amit,2026-07-01,C5001,10,45,Billing,Resolved,5
+1002,A102,,2026-07-02,C5002,12,60,Technical,Resolved,4
+1003,A103,Rahul,2026-07-03,C5003,-5,30,Complaint,Resolved,3
+1004,A104,Neha,2026-15-03,C5004,8,40,Billing,Resolved,5
+1005,A105,Priya,2026-07-05,C5005,15,,Technical,Resolved,4
+1006,A101,Amit,2026-07-06,C5006,20,70,Billing,Resolved,
+1006,A101,Amit,2026-07-06,C5006,20,70,Billing,Resolved,5
+1008,A102,Rahul,2026-07-08,C5008,500,35,Complaint,Resolved,2
+1009,A103,Neha,2026-07-09,C5009,9,-20,Billing,Resolved,3
+1010,A104,Karan,2026-07-10,C5010,14,55,Technical,Pending,4
+1011,A105,Priya,2026-07-11,C5011,12,80,Complaint,Escalated,5
+1012,A101,Amit,2026-07-12,C5012,7,25,Billing,Closed,4

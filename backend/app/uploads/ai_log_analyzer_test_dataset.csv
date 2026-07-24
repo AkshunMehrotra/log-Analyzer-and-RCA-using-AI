@@ -1,0 +1,201 @@
+timestamp,service,severity,event_code,message,suspected_rca,incident_id
+2026-07-20T08:00:00,inventory-service,ERROR,INVENTORY_SYNC,Kafka consumer lag exceeded threshold,Kafka broker overload,INC-1000
+2026-07-20T08:03:00,order-service,ERROR,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1000
+2026-07-20T08:06:00,auth-service,CRITICAL,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1000
+2026-07-20T08:09:00,order-service,ERROR,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1000
+2026-07-20T08:12:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1000
+2026-07-20T08:15:00,auth-service,ERROR,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1000
+2026-07-20T08:18:00,auth-service,ERROR,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1000
+2026-07-20T08:21:00,api-gateway,ERROR,HIGH_LATENCY,Upstream response timeout,Network congestion,INC-1000
+2026-07-20T08:24:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:27:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:30:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:33:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:36:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:39:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:42:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:45:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:48:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:51:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:54:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T08:57:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:00:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:03:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:06:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:09:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:12:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:15:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:18:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:21:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:24:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:27:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:30:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:33:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:36:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:39:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:42:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:45:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:48:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:51:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:54:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T09:57:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1000
+2026-07-20T10:00:00,order-service,ERROR,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1001
+2026-07-20T10:03:00,api-gateway,CRITICAL,HIGH_LATENCY,Upstream response timeout,Network congestion,INC-1001
+2026-07-20T10:06:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1001
+2026-07-20T10:09:00,auth-service,CRITICAL,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1001
+2026-07-20T10:12:00,auth-service,ERROR,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1001
+2026-07-20T10:15:00,auth-service,CRITICAL,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1001
+2026-07-20T10:18:00,inventory-service,ERROR,INVENTORY_SYNC,Kafka consumer lag exceeded threshold,Kafka broker overload,INC-1001
+2026-07-20T10:21:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1001
+2026-07-20T10:24:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:27:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:30:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:33:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:36:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:39:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:42:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:45:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:48:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:51:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:54:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T10:57:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:00:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:03:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:06:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:09:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:12:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:15:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:18:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:21:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:24:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:27:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:30:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:33:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:36:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:39:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:42:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:45:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:48:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:51:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:54:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T11:57:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1001
+2026-07-20T12:00:00,payment-service,ERROR,DB_CONN_TIMEOUT,Database connection pool exhausted,Database saturation,INC-1002
+2026-07-20T12:03:00,order-service,ERROR,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1002
+2026-07-20T12:06:00,auth-service,ERROR,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1002
+2026-07-20T12:09:00,order-service,ERROR,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1002
+2026-07-20T12:12:00,order-service,ERROR,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1002
+2026-07-20T12:15:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1002
+2026-07-20T12:18:00,inventory-service,CRITICAL,INVENTORY_SYNC,Kafka consumer lag exceeded threshold,Kafka broker overload,INC-1002
+2026-07-20T12:21:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1002
+2026-07-20T12:24:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:27:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:30:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:33:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:36:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:39:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:42:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:45:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:48:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:51:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:54:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T12:57:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:00:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:03:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:06:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:09:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:12:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:15:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:18:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:21:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:24:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:27:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:30:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:33:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:36:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:39:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:42:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:45:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:48:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:51:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:54:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T13:57:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1002
+2026-07-20T14:00:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1003
+2026-07-20T14:03:00,auth-service,CRITICAL,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1003
+2026-07-20T14:06:00,payment-service,ERROR,DB_CONN_TIMEOUT,Database connection pool exhausted,Database saturation,INC-1003
+2026-07-20T14:09:00,api-gateway,ERROR,HIGH_LATENCY,Upstream response timeout,Network congestion,INC-1003
+2026-07-20T14:12:00,auth-service,ERROR,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1003
+2026-07-20T14:15:00,auth-service,CRITICAL,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1003
+2026-07-20T14:18:00,auth-service,ERROR,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1003
+2026-07-20T14:21:00,api-gateway,ERROR,HIGH_LATENCY,Upstream response timeout,Network congestion,INC-1003
+2026-07-20T14:24:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:27:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:30:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:33:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:36:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:39:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:42:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:45:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:48:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:51:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:54:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T14:57:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:00:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:03:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:06:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:09:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:12:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:15:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:18:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:21:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:24:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:27:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:30:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:33:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:36:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:39:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:42:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:45:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:48:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:51:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:54:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T15:57:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1003
+2026-07-20T16:00:00,auth-service,CRITICAL,AUTH_TOKEN_FAIL,JWT signature validation failed,Expired signing certificate,INC-1004
+2026-07-20T16:03:00,payment-service,ERROR,DB_CONN_TIMEOUT,Database connection pool exhausted,Database saturation,INC-1004
+2026-07-20T16:06:00,api-gateway,ERROR,HIGH_LATENCY,Upstream response timeout,Network congestion,INC-1004
+2026-07-20T16:09:00,order-service,CRITICAL,ORDER_FAILURE,Order creation transaction rolled back,Deadlock in database transaction,INC-1004
+2026-07-20T16:12:00,payment-service,ERROR,DB_CONN_TIMEOUT,Database connection pool exhausted,Database saturation,INC-1004
+2026-07-20T16:15:00,inventory-service,ERROR,INVENTORY_SYNC,Kafka consumer lag exceeded threshold,Kafka broker overload,INC-1004
+2026-07-20T16:18:00,api-gateway,CRITICAL,HIGH_LATENCY,Upstream response timeout,Network congestion,INC-1004
+2026-07-20T16:21:00,payment-service,ERROR,DB_CONN_TIMEOUT,Database connection pool exhausted,Database saturation,INC-1004
+2026-07-20T16:24:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:27:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:30:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:33:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:36:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:39:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:42:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:45:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:48:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:51:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:54:00,order-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T16:57:00,api-gateway,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:00:00,inventory-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:03:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:06:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:09:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:12:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:15:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:18:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:21:00,payment-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:24:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:27:00,payment-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:30:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:33:00,auth-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:36:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:39:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:42:00,api-gateway,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:45:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:48:00,inventory-service,WARN,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:51:00,auth-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:54:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004
+2026-07-20T17:57:00,order-service,INFO,NORMAL_OP,Service operating normally,None,INC-1004

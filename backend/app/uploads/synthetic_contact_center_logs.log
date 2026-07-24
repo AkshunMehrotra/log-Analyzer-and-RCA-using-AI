@@ -1,0 +1,38 @@
+2026-07-24 08:00:01 INFO  [System] Contact Center Service started successfully.
+2026-07-24 08:00:15 INFO  [Auth] Agent A1001 logged in successfully.
+2026-07-24 08:01:03 INFO  [Call] Incoming call received. CallID=CC10001 CustomerID=CUST9812
+2026-07-24 08:01:08 INFO  [CRM] Customer profile loaded successfully.
+2026-07-24 08:01:12 WARN  [Network] High latency detected (Response Time: 420 ms).
+2026-07-24 08:01:15 INFO  [Call] Call connected to Agent A1001.
+2026-07-24 08:03:44 ERROR [Database] Connection timeout while fetching customer history.
+2026-07-24 08:03:45 WARN  [CRM] Customer history unavailable. Displaying cached data.
+2026-07-24 08:03:47 INFO  [Retry] Database reconnect attempt 1 successful.
+2026-07-24 08:05:21 INFO  [Call] Incoming call received. CallID=CC10002 CustomerID=CUST5519
+2026-07-24 08:05:24 ERROR [API] Payment Service returned HTTP 503 Service Unavailable.
+2026-07-24 08:05:27 ERROR [API] Retry failed. Payment verification aborted.
+2026-07-24 08:05:30 WARN  [Call] Agent informed customer about temporary service outage.
+2026-07-24 08:08:10 INFO  [Auth] Login attempt for Agent A1012.
+2026-07-24 08:08:12 ERROR [Auth] Invalid credentials for Agent A1012.
+2026-07-24 08:08:18 ERROR [Auth] Invalid credentials for Agent A1012.
+2026-07-24 08:08:25 ERROR [Security] Multiple failed login attempts detected.
+2026-07-24 08:08:30 WARN  [Security] Account temporarily locked for Agent A1012.
+2026-07-24 08:10:11 INFO  [Call] Incoming call received. CallID=CC10003 CustomerID=CUST7791
+2026-07-24 08:10:14 ERROR [SpeechEngine] Speech-to-Text service timeout.
+2026-07-24 08:10:18 WARN  [SpeechEngine] Switching to backup transcription service.
+2026-07-24 08:10:22 INFO  [SpeechEngine] Backup transcription service active.
+2026-07-24 08:12:41 INFO  [Monitoring] CPU Usage = 91%
+2026-07-24 08:12:42 WARN  [Monitoring] Memory usage exceeded 85%.
+2026-07-24 08:12:45 ERROR [System] Worker process crashed unexpectedly.
+2026-07-24 08:12:49 INFO  [Recovery] Worker restarted successfully.
+2026-07-24 08:15:07 INFO  [Call] Incoming call received. CallID=CC10004 CustomerID=CUST4438
+2026-07-24 08:15:10 INFO  [CRM] Customer profile loaded successfully.
+2026-07-24 08:15:18 INFO  [Call] Call ended successfully.
+2026-07-24 08:18:32 ERROR [Database] Deadlock detected while updating interaction records.
+2026-07-24 08:18:35 WARN  [Database] Transaction rolled back.
+2026-07-24 08:18:38 INFO  [Database] Transaction retried successfully.
+2026-07-24 08:20:00 INFO  [Scheduler] Daily analytics report generation started.
+2026-07-24 08:20:18 INFO  [Scheduler] Daily analytics report completed successfully.
+2026-07-24 08:22:45 ERROR [Network] Connection lost to CRM Server.
+2026-07-24 08:22:48 WARN  [Network] Automatic reconnection initiated.
+2026-07-24 08:22:55 INFO  [Network] CRM connection restored.
+2026-07-24 08:25:00 INFO  [System] Health Check Completed.
