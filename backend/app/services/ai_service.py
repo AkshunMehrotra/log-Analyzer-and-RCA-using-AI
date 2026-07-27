@@ -1,25 +1,21 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
+from app.utils.logger import logger
 
-# Load .env
 load_dotenv()
 
-# Get API Key
 api_key = os.getenv("GROQ_API_KEY")
 
 if not api_key:
     raise Exception("GROQ_API_KEY not found in .env")
 
-# Initialize Groq Client
 client = Groq(api_key=api_key)
 
 
 def generate_summary(parsed_result, rca):
 
-    # -------------------------
-    # Overall Status
-    # -------------------------
+    # ---------------- Status ---------------- #
 
     if parsed_result["errors_count"] == 0:
         status = "Healthy"
@@ -33,38 +29,48 @@ def generate_summary(parsed_result, rca):
     else:
         status = "Critical"
 
-    # -------------------------
-    # AI Prompt
-    # -------------------------
+    # ---------------- Limit RCA ---------------- #
+
+    MAX_RCA = 30
+
+    if len(rca) > MAX_RCA:
+        logger.info(
+            f"Large RCA Detected ({len(rca)}). Sending only first {MAX_RCA} to AI."
+        )
+        ai_rca = rca[:MAX_RCA]
+    else:
+        ai_rca = rca
 
     prompt = f"""
 You are a Senior Contact Center Support Engineer.
 
-Analyze the following Contact Center report.
+Generate a concise RCA Report.
 
-Summary:
-{parsed_result}
+Statistics
 
-Detected Issues:
-{rca}
+Total Logs : {parsed_result['total_logs']}
+Errors : {parsed_result['errors_count']}
+Warnings : {parsed_result['warnings_count']}
+Severity : {parsed_result['severity']}
 
-Generate a professional report with the following sections:
+Analyze ONLY these incidents:
+
+{ai_rca}
+
+Provide:
 
 1. Executive Summary
-2. Root Cause Analysis
+2. Root Cause
 3. Business Impact
 4. Recommendations
 5. Overall Health
 
-Write the report in professional English.
-Return only the report.
+Keep answer under 500 words.
 """
 
-    # -------------------------
-    # Generate AI Summary
-    # -------------------------
-
     try:
+
+        logger.info("Calling Groq API")
 
         response = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
@@ -79,12 +85,16 @@ Return only the report.
                 }
             ],
             temperature=0.3,
-            max_tokens=700
+            max_tokens=500
         )
 
         ai_summary = response.choices[0].message.content.strip()
 
+        logger.info("Groq Response Received Successfully")
+
     except Exception as e:
+
+        logger.exception("Groq API Failed")
 
         ai_summary = f"""
 Executive Summary
@@ -102,10 +112,6 @@ Reason:
 {str(e)}
 """
 
-    # -------------------------
-    # Final Response
-    # -------------------------
-
     return {
 
         "analysis_summary": ai_summary,
@@ -117,7 +123,7 @@ Reason:
             "severity": parsed_result["severity"]
         },
 
-        "root_cause_analysis": rca,
+        "root_cause_analysis": ai_rca,
 
         "overall_status": status
 

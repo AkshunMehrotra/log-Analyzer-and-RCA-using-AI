@@ -1,5 +1,7 @@
 import re
 
+from app.utils.logger import logger
+
 
 def calculate_severity(error_count):
 
@@ -13,30 +15,55 @@ def calculate_severity(error_count):
 
 def parse_log(file_path):
 
+    logger.info(f"Started parsing log file: {file_path}")
+
     logs = []
+    errors = []
+    warnings = []
 
-    with open(file_path, "r") as file:
+    count = 0
 
-        for line in file.readlines():
+    with open(file_path, "r", encoding="utf-8", errors="ignore") as file:
+
+        for line in file:
+
+            count += 1
 
             match = re.match(r"(.*?) (INFO|WARNING|ERROR) (.*)", line.strip())
 
             if match:
 
-                logs.append({
+                log = {
                     "timestamp": match.group(1),
                     "level": match.group(2),
                     "message": match.group(3)
-                })
+                }
 
-    errors = [log for log in logs if log["level"] == "ERROR"]
-    warnings = [log for log in logs if log["level"] == "WARNING"]
+                logs.append(log)
+
+                if log["level"] == "ERROR":
+                    errors.append(log)
+
+                elif log["level"] == "WARNING":
+                    warnings.append(log)
+
+            if count % 5000 == 0:
+                logger.info(f"Processed {count} log records")
+
+    logger.info("Log parsing completed successfully")
 
     return {
+
         "total_logs": len(logs),
+
         "errors_count": len(errors),
+
         "warnings_count": len(warnings),
+
         "errors": errors,
+
         "warnings": warnings,
+
         "severity": calculate_severity(len(errors))
+
     }
