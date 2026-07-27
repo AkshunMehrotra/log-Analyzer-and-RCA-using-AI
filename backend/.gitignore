@@ -1,1 +1,17 @@
-git remote add origin https://github.com/AkshunMehrotra/log-Analyzer-and-RCA-using-AI.git
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# SQLite Database
+*.db
+
+# Uploaded files
+app/uploads/*
+!app/uploads/.gitkeep
+
+# Environment
+.env
+
+# Virtual Environment
+venv/
+.venv/
