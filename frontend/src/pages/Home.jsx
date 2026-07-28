@@ -1,16 +1,26 @@
 import Navbar from "../components/Navbar";
-import UploadCard from "../components/UploadCard";
 
 function Home() {
-  return (
-    <>
-      <Navbar />
+    return (
+        <>
+            <Navbar />
 
-      <div className="container">
-        <UploadCard />
-      </div>
-    </>
-  );
+            <div
+                style={{
+                    maxWidth: "1200px",
+                    margin: "40px auto",
+                    padding: "20px",
+                }}
+            >
+                <h1>AI Log Analyzer & RCA</h1>
+
+                <p>
+                    Upload your Log, CSV or TXT file to generate
+                    AI-powered Root Cause Analysis.
+                </p>
+            </div>
+        </>
+    );
 }
 
 export default Home;
