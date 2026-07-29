@@ -1,0 +1,17 @@
+Log File Upload
+        ↓
+FastAPI Upload API
+        ↓
+File Manager
+        ↓
+Log Parser
+        ↓
+Incident Detector
+        ↓
+RCA Engine
+        ↓
+Groq LLM Analysis
+        ↓
+SQLite Database
+        ↓
+JSON Response (Swagger)
