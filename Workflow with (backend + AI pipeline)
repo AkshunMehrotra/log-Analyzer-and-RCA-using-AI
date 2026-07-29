@@ -1,0 +1,92 @@
+                 ┌────────────────────┐
+                 │       USER         │
+                 │ Contact Center Eng │
+                 └─────────┬──────────┘
+                           │
+                           │ Upload Log File
+                           │ (.log / .csv / .txt)
+                           ▼
+              ┌────────────────────────┐
+              │     FastAPI API        │
+              │                        │
+              │  Upload Endpoint       │
+              │  (/upload)             │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │   File Processing      │
+              │                        │
+              │ - Validate File        │
+              │ - Save Uploaded Logs   │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │   Log Parser Engine    │
+              │                        │
+              │ log_parser.py          │
+              │                        │
+              │ - Extract Timestamp    │
+              │ - Identify Log Level   │
+              │ - Count Errors         │
+              │ - Count Warnings       │
+              │ - Extract Messages     │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │ Incident Detector      │
+              │                        │
+              │ incident_detector.py   │
+              │                        │
+              │ - Detect Error Pattern │
+              │ - Calculate Severity   │
+              │ - Identify Incident    │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │      RCA Engine        │
+              │                        │
+              │ rca_engine.py          │
+              │                        │
+              │ - Root Cause Mapping   │
+              │ - Reason Identification│
+              │ - Recommendations      │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │     AI Service         │
+              │                        │
+              │ ai_service.py          │
+              │                        │
+              │ Groq API               │
+              │ Llama 3.3 70B Model    │
+              │                        │
+              │ - AI Summary           │
+              │ - RCA Explanation      │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │      Database          │
+              │                        │
+              │ SQLite + SQLAlchemy    │
+              │                        │
+              │ Store Analysis Result  │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │     API Response       │
+              │                        │
+              │ JSON Result            │
+              │                        │
+              │ - Total Logs           │
+              │ - Errors               │
+              │ - Warnings             │
+              │ - Severity             │
+              │ - AI RCA Summary       │
+              └────────────────────────┘
