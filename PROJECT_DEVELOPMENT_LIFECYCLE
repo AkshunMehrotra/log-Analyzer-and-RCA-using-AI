@@ -1,0 +1,307 @@
+🚀 Software Development Life Cycle (SDLC)
+
+Project: AI-Powered Log Analyzer & Root Cause Analysis (RCA) Tool for Contact Center
+
+This document explains how the project was developed phase by phase following the Software Development Life Cycle (SDLC). Each phase highlights the objective, implementation, deliverables, and outcomes.
+
+📍 Phase 1 — Project Planning & Requirement Analysis
+
+"Every successful project starts with proper planning."
+
+🎯 Objective
+
+Understand the business problem and identify the functional requirements of the Contact Center Log Analyzer.
+
+📝 Activities Performed
+
+✔ Studied Contact Center log files
+
+✔ Understood the RCA workflow
+
+✔ Identified user requirements
+
+✔ Designed the backend architecture
+
+✔ Selected the technology stack
+
+📦 Deliverables
+Software architecture
+Folder structure
+Technology selection
+Development roadmap
+💡 Why this phase was important
+
+Without proper planning, later modules like Log Parsing, RCA and AI integration would become difficult to manage.
+
+📍 Phase 2 — Backend Environment Setup
+
+"A strong foundation ensures smooth development."
+
+🎯 Objective
+
+Prepare the development environment and organize the backend project.
+
+🏗 Implemented
+Created FastAPI project
+Created application folders
+Installed dependencies
+Configured virtual environment
+Configured Git repository
+📂 Project Structure
+backend/
+│
+├── app/
+│   ├── api/
+│   ├── services/
+│   ├── models/
+│   ├── uploads/
+│   ├── utils/
+│   └── main.py
+✅ Outcome
+
+A modular backend architecture was prepared for future development.
+
+📍 Phase 3 — REST API Development
+
+"APIs became the communication bridge of the application."
+
+🎯 Objective
+
+Develop REST APIs using FastAPI.
+
+⚙ Implemented
+
+✔ Root Endpoint
+
+✔ Health Endpoint
+
+✔ Swagger Documentation
+
+✔ CORS Middleware
+
+🌐 Available APIs
+GET /
+GET /health
+📌 Outcome
+
+The backend became accessible and testable through Swagger UI.
+
+📍 Phase 4 — Log Upload Module
+
+"Before analysis, the system must securely receive log files."
+
+🎯 Objective
+
+Develop an API to upload Contact Center log files.
+
+⚙ Features
+Upload log files
+Validate uploaded files
+Store uploaded files
+Error handling
+🔄 Workflow
+User
+ │
+ ▼
+Upload API
+ │
+ ▼
+Validation
+ │
+ ▼
+Uploads Folder
+📌 Outcome
+
+Users can securely upload logs for further analysis.
+
+📍 Phase 5 — Log Parsing Engine
+
+"Raw logs have no meaning until they are converted into structured information."
+
+🎯 Objective
+
+Extract meaningful information from raw log files.
+
+⚙ Implemented
+Regular Expression Parsing
+Timestamp Extraction
+Log Level Detection
+Error Counting
+Warning Counting
+Severity Calculation
+🔄 Data Flow
+Raw Logs
+
+↓
+
+Regex Parsing
+
+↓
+
+Structured Data
+
+↓
+
+Analysis Ready
+📌 Outcome
+
+The parser transformed raw logs into structured data that could be processed by the RCA engine.
+
+📍 Phase 6 — Incident Detection
+
+"Not every error is an incident. This module identifies critical situations."
+
+🎯 Objective
+
+Detect incidents automatically from parsed log data.
+
+⚙ Implemented
+Error Frequency Analysis
+Critical Event Detection
+Severity Classification
+Incident Identification
+🔄 Workflow
+Parsed Logs
+
+↓
+
+Frequency Analysis
+
+↓
+
+Incident Detection
+📌 Outcome
+
+The application automatically identifies whether an incident exists.
+
+📍 Phase 7 — Rule-Based Root Cause Analysis
+
+"Finding the actual reason behind failures."
+
+🎯 Objective
+
+Identify the most probable root cause using predefined rules.
+
+⚙ Implemented
+Error Mapping
+RCA Rules
+Recommendation Engine
+Root Cause Generation
+🔄 Example
+DATABASE CONNECTION FAILED
+
+↓
+
+Database Server Down
+
+↓
+
+Restart Database Service
+📌 Outcome
+
+The system provides instant RCA and recommendations without manual investigation.
+
+📍 Phase 8 — AI Integration
+
+"Traditional analysis explains what happened, AI explains why it happened."
+
+🎯 Objective
+
+Generate intelligent RCA reports using Large Language Models.
+
+⚙ Integrated
+Groq API
+Llama 3.3 70B
+🤖 AI Generates
+
+✔ Executive Summary
+
+✔ Root Cause Explanation
+
+✔ Recommendations
+
+✔ Severity Explanation
+
+✔ Final RCA Report
+
+🔄 Workflow
+Structured Logs
+
+↓
+
+Groq AI
+
+↓
+
+AI Report
+
+↓
+
+User
+📌 Outcome
+
+The application produces intelligent reports instead of only displaying raw statistics.
+
+📍 Phase 9 — CSV Analysis Module
+
+"Many Contact Center reports are generated in CSV format."
+
+🎯 Objective
+
+Support CSV-based report analysis.
+
+⚙ Implemented
+CSV Reading
+Pandas Processing
+Statistics Generation
+Summary Generation
+🔄 Workflow
+CSV File
+
+↓
+
+Pandas Processing
+
+↓
+
+Statistics
+
+↓
+
+Analysis Report
+📌 Outcome
+
+The system can analyze thousands of Contact Center records efficiently.
+
+🏁 Final SDLC Outcome
+Requirement Analysis
+        │
+        ▼
+Project Planning
+        │
+        ▼
+Backend Setup
+        │
+        ▼
+API Development
+        │
+        ▼
+Upload Module
+        │
+        ▼
+Log Parsing
+        │
+        ▼
+Incident Detection
+        │
+        ▼
+Root Cause Analysis
+        │
+        ▼
+AI Integration
+        │
+        ▼
+CSV Analysis
+        │
+        ▼
+Final AI Report
