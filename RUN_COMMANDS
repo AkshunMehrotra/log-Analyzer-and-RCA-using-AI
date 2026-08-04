@@ -1,0 +1,208 @@
+# 🚀 Run Commands
+
+This document contains all the commands required to set up and run the **AI-Powered Log Analyzer & Root Cause Analysis (RCA) Tool**.
+
+---
+
+# 📥 1. Clone the Repository
+
+```bash
+git clone https://github.com/AkshunMehrotra/log-Analyzer-and-RCA-using-AI.git
+```
+
+---
+
+# 📂 2. Move into the Project Directory
+
+```bash
+cd log-Analyzer-and-RCA-using-AI
+```
+
+---
+
+# 📂 3. Move into Backend Directory
+
+```bash
+cd backend
+```
+
+---
+
+# 🐍 4. Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+---
+
+# ▶️ 5. Activate Virtual Environment
+
+## Windows
+
+```bash
+venv\Scripts\activate
+```
+
+## Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+# 📦 6. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 🔑 7. Create Environment File
+
+Create a `.env` file inside the **backend** directory.
+
+```env
+GROQ_API_KEY=YOUR_GROQ_API_KEY
+```
+
+---
+
+# 🚀 8. Run the FastAPI Server by going inside the backend by using 
+
+cd backend 
+
+```bash
+python -m uvicorn app.main:app --reload
+```
+
+---
+
+# 🌐 9. Access the Application
+
+## Backend API
+
+```
+http://127.0.0.1:8000
+```
+
+## Swagger UI
+
+```
+http://127.0.0.1:8000/docs
+```
+
+## ReDoc Documentation
+
+```
+http://127.0.0.1:8000/redoc
+```
+
+---
+
+# 🛑 10. Stop the Server
+
+Press
+
+```text
+CTRL + C
+```
+
+---
+
+# 🔄 11. Deactivate Virtual Environment
+
+```bash
+deactivate
+```
+
+---
+
+# 📦 Installing New Packages
+
+```bash
+pip install package_name
+```
+
+Example
+
+```bash
+pip install pandas
+```
+
+---
+
+# 📝 Update Requirements File
+
+Whenever a new package is installed, update the requirements file.
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+# 📂 Git Commands
+
+## Check Status
+
+```bash
+git status
+```
+
+## Add Files
+
+```bash
+git add .
+```
+
+## Commit Changes
+
+```bash
+git commit -m "Your Commit Message"
+```
+
+## Push Changes
+
+```bash
+git push origin main
+```
+
+## Pull Latest Changes
+
+```bash
+git pull origin main
+```
+
+---
+
+# 🧪 API Testing
+
+After starting the server, open:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+Swagger UI can be used to test all available APIs.
+
+---
+
+# ✅ Expected Startup Output
+
+```
+INFO:     Uvicorn running on http://127.0.0.1:8000
+INFO:     Application startup complete.
+```
+
+---
+
+# 📌 Notes
+
+- Ensure Python 3.10 or later is installed.
+- Activate the virtual environment before running the project.
+- Add a valid Groq API Key inside the `.env` file.
+- Install dependencies before starting the server.
+- Use Swagger UI for testing APIs.
