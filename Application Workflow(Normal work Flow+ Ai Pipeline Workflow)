@@ -1,0 +1,57 @@
+Normal Workflow
+
+User
+  ↓
+Upload Log File
+  ↓
+File Validation
+  ↓
+FastAPI Upload API
+  ↓
+File Storage
+  ↓
+Log Parsing
+  ↓
+Error & Warning Detection
+  ↓
+Incident Detection
+  ↓
+Root Cause Analysis
+  ↓
+AI Executive Report Generation
+  ↓
+Analysis Response
+  ↓
+Streamlit Dashboard
+  ↓
+Charts + Incidents + RCA + Recommendations
+
+
+
+
+
+
+🤖 AI Pipeline Workflow
+Raw Contact Center Logs
+          ↓
+     Log Parsing
+          ↓
+Extract Timestamp / Level / Message
+          ↓
+Error & Warning Classification
+          ↓
+Incident Detection
+          ↓
+Pattern / Rule Based Analysis
+          ↓
+Root Cause Identification
+          ↓
+Possible Causes Generation
+          ↓
+LLM Analysis
+          ↓
+Executive Health Report
+          ↓
+Recommended Corrective Actions
+          ↓
+Final RCA Dashboard
