@@ -1,0 +1,21 @@
+LogAnalyzer-RCA-AI/
+│
+├── backend/
+│   │
+│   ├── app/
+│   │   ├── api/
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   ├── database.py
+│   │   └── main.py
+│   │
+│   ├── uploads/
+│   ├── dashboard.py
+│   ├── log_analyzer.db
+│   ├── requirements.txt
+│   └── .env
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
