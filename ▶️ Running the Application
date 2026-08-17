@@ -1,0 +1,26 @@
+Start FastAPI Backend
+
+Navigate to backend:
+
+cd backend
+
+Run FastAPI:
+
+python -m uvicorn app.main:app --reload
+
+Backend will run on:
+
+http://127.0.0.1:8000
+Start Streamlit Dashboard
+
+Open another terminal.
+
+Navigate to backend:
+
+cd backend
+
+Run:
+
+python -m streamlit run dashboard.py
+
+The Streamlit dashboard will open in the browser.
