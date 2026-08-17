@@ -1,0 +1,132 @@
+System Overview
+
+The dashboard displays:
+
+Total Logs
+Total Errors
+Total Warnings
+Total Incidents
+System Health
+
+The system calculates:
+
+Health Score
+Error Rate
+Warning Rate
+
+Example:
+
+Health Score: 90.12%
+Error Rate: 9.88%
+Warning Rate: 20.16%
+Severity Assessment
+
+The system classifies overall severity into:
+
+🟢 LOW
+🟡 MEDIUM
+🟠 HIGH
+🔴 CRITICAL
+📈 Data Visualization
+
+The Streamlit dashboard provides visual representations of the analyzed logs.
+
+Log Distribution
+
+Displays the distribution of:
+
+Errors
+Warnings
+Other Logs
+Incident Severity Distribution
+
+Displays detected incidents according to:
+
+Critical
+High
+Medium
+Low
+Interactive Visualization
+
+Plotly is used to provide interactive charts and graphical representations of the analysis results.
+
+🚨 Incident Detection
+
+Detected incidents are displayed in a structured table containing:
+
+Field	Description
+Incident	Detected incident description
+Priority	Incident priority
+Severity	Incident severity
+
+Example:
+
+Incident: DATABASE CONNECTION FAILED
+Priority: P1
+Severity: CRITICAL
+🤖 Root Cause Analysis
+
+Each incident can be expanded to view detailed RCA information.
+
+The RCA section contains:
+
+Timestamp
+Error message
+Root cause
+Possible reasons
+Recommended actions
+
+Example:
+
+Root Cause:
+Database connection failure
+
+
+Possible Reasons:
+- Database server unavailable
+- Connection timeout
+- Network failure
+- Database overload
+
+
+Recommended Actions:
+- Verify database availability
+- Check connection configuration
+- Review database logs
+- Monitor database performance
+🧠 AI Executive Report
+
+The AI Executive Report converts raw technical log information into a structured operational report.
+
+The report includes:
+
+System Overview
+
+Provides overall system health and log statistics.
+
+Incident Summary
+
+Explains what happened and which components were affected.
+
+Root Cause Analysis
+
+Identifies probable causes and supporting evidence.
+
+Business Impact Analysis
+
+Evaluates the impact on:
+
+Customer Calls
+Agent Productivity
+Contact Center Operations
+Service Availability
+Recommended Actions
+
+Provides:
+
+Immediate actions
+Preventive actions
+Monitoring improvements
+Alerting improvements
+Automation suggestions
+Infrastructure improvements
