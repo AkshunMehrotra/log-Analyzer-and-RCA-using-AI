@@ -182,7 +182,7 @@ if uploaded_file is not None:
         if st.button(
             "📤 Upload File",
             type="secondary",
-            use_container_width=True,
+            width="stretch",
         ):
 
             try:
@@ -212,7 +212,10 @@ if uploaded_file is not None:
                         st.session_state.uploaded = True
 
                         st.session_state.uploaded_filename = (
-                            upload_data.get("filename")
+                            upload_data.get(
+                                "filename",
+                                uploaded_file.name,
+                            )
                         )
 
                         st.session_state.analysis = None
@@ -264,7 +267,7 @@ if st.session_state.uploaded:
     if st.button(
         "🚀 ANALYZE LOG",
         type="primary",
-        use_container_width=True,
+        width="stretch",
     ):
 
         try:
@@ -299,16 +302,26 @@ if st.session_state.uploaded:
                         )
                     )
 
+                    if result.get("error_details"):
+                        with st.expander("🔍 Backend Error Details"):
+                            st.json(result.get("error_details"))
+
             else:
 
                 st.error(
                     f"❌ Analysis failed. HTTP {response.status_code}"
                 )
 
+                try:
+                    st.json(response.json())
+                except Exception:
+                    st.code(response.text)
+
         except requests.exceptions.ConnectionError:
 
             st.error(
-                "❌ Cannot connect to FastAPI backend."
+                "❌ Cannot connect to FastAPI backend. "
+                "Make sure Uvicorn is running on port 8000."
             )
 
         except requests.exceptions.Timeout:
@@ -331,17 +344,32 @@ if result:
 
     statistics = result.get("statistics", {})
 
-    total_logs = statistics.get("total_logs", 0)
-    errors = statistics.get("errors", 0)
-    warnings = statistics.get("warnings", 0)
-    severity = statistics.get("severity", "UNKNOWN")
+    total_logs = int(
+        statistics.get("total_logs", 0) or 0
+    )
 
-    incidents = result.get("incidents", [])
+    errors = int(
+        statistics.get("errors", 0) or 0
+    )
+
+    warnings = int(
+        statistics.get("warnings", 0) or 0
+    )
+
+    severity = statistics.get(
+        "severity",
+        "UNKNOWN",
+    )
+
+    incidents = result.get(
+        "incidents",
+        [],
+    ) or []
 
     rca_records = result.get(
         "root_cause_analysis",
-        []
-    )
+        [],
+    ) or []
 
     total_incidents = result.get(
         "total_incidents",
@@ -387,7 +415,7 @@ if result:
     with col4:
         st.metric(
             "Incidents",
-            f"{total_incidents:,}",
+            f"{int(total_incidents):,}",
         )
 
     # ========================================================
@@ -399,7 +427,9 @@ if result:
         unsafe_allow_html=True,
     )
 
-    severity_upper = str(severity).upper()
+    severity_upper = str(
+        severity or "UNKNOWN"
+    ).upper()
 
     if severity_upper == "CRITICAL":
 
@@ -440,6 +470,13 @@ if result:
     # HEALTH SCORE
     # ========================================================
 
+    # IMPORTANT:
+    # Always initialize these before using them.
+
+    error_percentage = 0.0
+    warning_percentage = 0.0
+    health_score = 100.0
+
     if total_logs > 0:
 
         error_percentage = (
@@ -455,37 +492,40 @@ if result:
             100 - error_percentage,
         )
 
-        st.markdown(
-            '<div class="section-title">💚 System Health</div>',
-            unsafe_allow_html=True,
+    st.markdown(
+        '<div class="section-title">💚 System Health</div>',
+        unsafe_allow_html=True,
+    )
+
+    health_col1, health_col2, health_col3 = st.columns(3)
+
+    with health_col1:
+
+        st.metric(
+            "Health Score",
+            f"{health_score:.2f}%",
         )
 
-        health_col1, health_col2, health_col3 = st.columns(3)
+    with health_col2:
 
-        with health_col1:
-
-            st.metric(
-                "Health Score",
-                f"{health_score:.2f}%",
-            )
-
-        with health_col2:
-
-            st.metric(
-                "Error Rate",
-                f"{error_percentage:.2f}%",
-            )
-
-        with health_col3:
-
-            st.metric(
-                "Warning Rate",
-                f"{warning_percentage:.2f}%",
-            )
-
-        st.progress(
-            min(health_score / 100, 1.0)
+        st.metric(
+            "Error Rate",
+            f"{error_percentage:.2f}%",
         )
+
+    with health_col3:
+
+        st.metric(
+            "Warning Rate",
+            f"{warning_percentage:.2f}%",
+        )
+
+    st.progress(
+        min(
+            max(health_score / 100, 0),
+            1.0,
+        )
+    )
 
     # ========================================================
     # COLORFUL PLOTLY DASHBOARD
@@ -527,7 +567,7 @@ if result:
     chart_col1, chart_col2 = st.columns(2)
 
     # --------------------------------------------------------
-    # COLORFUL BAR CHART
+    # BAR CHART
     # --------------------------------------------------------
 
     with chart_col1:
@@ -567,7 +607,7 @@ if result:
 
         st.plotly_chart(
             fig_bar,
-            use_container_width=True,
+            width="stretch",
         )
 
     # --------------------------------------------------------
@@ -582,45 +622,53 @@ if result:
             log_data["Count"] > 0
         ]
 
-        fig_pie = px.pie(
-            pie_data,
-            names="Type",
-            values="Count",
-            hole=0.48,
-            color="Type",
-            color_discrete_map={
-                "Errors": "#EF4444",
-                "Warnings": "#F59E0B",
-                "Other Logs": "#22C55E",
-            },
-        )
+        if not pie_data.empty:
 
-        fig_pie.update_traces(
-            textposition="inside",
-            textinfo="percent+label",
-            hovertemplate=(
-                "<b>%{label}</b><br>"
-                "Count: %{value:,}<br>"
-                "Percentage: %{percent}"
-                "<extra></extra>"
-            ),
-        )
+            fig_pie = px.pie(
+                pie_data,
+                names="Type",
+                values="Count",
+                hole=0.48,
+                color="Type",
+                color_discrete_map={
+                    "Errors": "#EF4444",
+                    "Warnings": "#F59E0B",
+                    "Other Logs": "#22C55E",
+                },
+            )
 
-        fig_pie.update_layout(
-            height=420,
-            margin=dict(
-                l=20,
-                r=20,
-                t=30,
-                b=20,
-            ),
-            legend_title_text="Log Type",
-        )
+            fig_pie.update_traces(
+                textposition="inside",
+                textinfo="percent+label",
+                hovertemplate=(
+                    "<b>%{label}</b><br>"
+                    "Count: %{value:,}<br>"
+                    "Percentage: %{percent}"
+                    "<extra></extra>"
+                ),
+            )
 
-        st.plotly_chart(
-            fig_pie,
-            use_container_width=True,
-        )
+            fig_pie.update_layout(
+                height=420,
+                margin=dict(
+                    l=20,
+                    r=20,
+                    t=30,
+                    b=20,
+                ),
+                legend_title_text="Log Type",
+            )
+
+            st.plotly_chart(
+                fig_pie,
+                width="stretch",
+            )
+
+        else:
+
+            st.info(
+                "No log distribution data available."
+            )
 
     # ========================================================
     # ROW 2 — SEVERITY + PRIORITY
@@ -640,16 +688,23 @@ if result:
 
         if rca_records:
 
-            severity_series = (
-                pd.DataFrame(rca_records)
-                .get(
-                    "severity",
-                    pd.Series(dtype=str),
+            rca_df = pd.DataFrame(rca_records)
+
+            if "severity" in rca_df.columns:
+
+                severity_series = (
+                    rca_df["severity"]
+                    .fillna("UNKNOWN")
+                    .astype(str)
+                    .str.upper()
+                    .value_counts()
                 )
-                .astype(str)
-                .str.upper()
-                .value_counts()
-            )
+
+            else:
+
+                severity_series = pd.Series(
+                    dtype=int
+                )
 
             if not severity_series.empty:
 
@@ -697,7 +752,7 @@ if result:
 
                 st.plotly_chart(
                     fig_severity,
-                    use_container_width=True,
+                    width="stretch",
                 )
 
             else:
@@ -724,16 +779,25 @@ if result:
 
         if incidents:
 
-            priority_series = (
-                pd.DataFrame(incidents)
-                .get(
-                    "priority",
-                    pd.Series(dtype=str),
-                )
-                .astype(str)
-                .str.upper()
-                .value_counts()
+            incident_df_temp = pd.DataFrame(
+                incidents
             )
+
+            if "priority" in incident_df_temp.columns:
+
+                priority_series = (
+                    incident_df_temp["priority"]
+                    .fillna("UNKNOWN")
+                    .astype(str)
+                    .str.upper()
+                    .value_counts()
+                )
+
+            else:
+
+                priority_series = pd.Series(
+                    dtype=int
+                )
 
             if not priority_series.empty:
 
@@ -750,7 +814,9 @@ if result:
                     y="Count",
                     color="Priority",
                     text="Count",
-                    color_discrete_sequence=px.colors.qualitative.Bold,
+                    color_discrete_sequence=(
+                        px.colors.qualitative.Bold
+                    ),
                 )
 
                 fig_priority.update_traces(
@@ -772,7 +838,7 @@ if result:
 
                 st.plotly_chart(
                     fig_priority,
-                    use_container_width=True,
+                    width="stretch",
                 )
 
             else:
@@ -838,7 +904,7 @@ if result:
 
     st.plotly_chart(
         fig_rate,
-        use_container_width=True,
+        width="stretch",
     )
 
     # ========================================================
@@ -873,13 +939,13 @@ if result:
                 }
             )
 
-        incident_df = pd.DataFrame(
+        incident_table = pd.DataFrame(
             incident_rows
         )
 
         st.dataframe(
-            incident_df,
-            use_container_width=True,
+            incident_table,
+            width="stretch",
             hide_index=True,
         )
 
@@ -905,9 +971,15 @@ if result:
             start=1,
         ):
 
+            rca_severity = str(
+                rca.get(
+                    "severity",
+                    "UNKNOWN",
+                )
+            ).upper()
+
             with st.expander(
-                f"Incident {index} — "
-                f"{rca.get('severity', 'UNKNOWN')}"
+                f"Incident {index} — {rca_severity}"
             ):
 
                 st.markdown(
@@ -936,6 +1008,9 @@ if result:
                     [],
                 )
 
+                if isinstance(reasons, str):
+                    reasons = [reasons]
+
                 if reasons:
 
                     st.markdown(
@@ -952,6 +1027,14 @@ if result:
                     "recommendations",
                     [],
                 )
+
+                if isinstance(
+                    recommendations,
+                    str,
+                ):
+                    recommendations = [
+                        recommendations
+                    ]
 
                 if recommendations:
 
@@ -993,7 +1076,7 @@ if result:
         ):
 
             st.markdown(
-                summary
+                str(summary)
             )
 
     else:
@@ -1028,7 +1111,6 @@ if result:
 
             parsed_rows = []
 
-            # Limit preview for huge files
             preview_lines = lines[:1000]
 
             for line in preview_lines:
@@ -1036,7 +1118,6 @@ if result:
                 timestamp = ""
                 level = "INFO"
 
-                # Timestamp detection
                 timestamp_match = re.search(
                     r"\d{4}-\d{2}-\d{2}[T\s]\d{2}:\d{2}:\d{2}",
                     line,
@@ -1046,7 +1127,6 @@ if result:
 
                     timestamp = timestamp_match.group()
 
-                # Log level detection
                 level_match = re.search(
                     r"\b(ERROR|WARNING|WARN|INFO|DEBUG|CRITICAL)\b",
                     line,
@@ -1081,7 +1161,7 @@ if result:
 
                 st.dataframe(
                     logs_df,
-                    use_container_width=True,
+                    width="stretch",
                     hide_index=True,
                     height=400,
                 )
@@ -1097,6 +1177,14 @@ if result:
             st.warning(
                 f"Could not display log preview: {e}"
             )
+
+    # ========================================================
+    # DEBUG RESPONSE
+    # ========================================================
+
+    with st.expander("🔧 Debug: Backend Response"):
+
+        st.json(result)
 
     # ========================================================
     # FOOTER
